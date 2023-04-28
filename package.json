@@ -1,0 +1,27 @@
+{
+  "name": "mty-project",
+  "version": "1.0.0",
+  "description": "MTY Project dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "npm run build",
+    "start": "node index.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boqan/MTY-Project.git"
+  },
+  "author": "Boyan Atanasov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boqan/MTY-Project/issues"
+  },
+  "homepage": "https://github.com/boqan/MTY-Project#readme",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "jest": "^29.5.0",
+    "prettier": "^2.5.1"
+  }
+}
