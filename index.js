@@ -1,4 +1,5 @@
 const distanceFunctions = require('./distance_calculation.js');
+const usersFunctions = require('./users_operation.js');
 const officeCordsLat = 42.6665921;
 const officeCordsLon = 23.351723;
 const distanceinKmRequiredForInvitation = 100.0;
@@ -24,19 +25,13 @@ readInterface.on("line", function (line) {
 });
 
 // pushing only people within the allowed radius for invitation to another list, then sorting the list by id (ascending) and finally printing the list
-readInterface.on("close", function () {
-  usersAndTheirDistanceFromOffice.forEach((user) => {
-    if(user.Distance < distanceinKmRequired){
-      usersFinalListForInvitation.push({Name: user.Name, id: user.id, Distance: user.Distance})
-    }
-  });
-
-  // Sorting should be outside the forEach loop
-  usersFinalListForInvitation.sort((a, b) => a.id - b.id);
-
-  usersFinalListForInvitation.forEach((user) => {
+readInterface.on("close", function(){
+  usersFunctions.usersDistanceListFilter(usersAndTheirDistanceFromOffice, usersFinalListForInvitation, distanceinKmRequiredForInvitation)
+  .sort((a, b) => a.id - b.id)
+  .forEach((user) => {
     console.log(user);
-  });
+  })
 });
+
 
 
